@@ -26,7 +26,6 @@ class WeatherRepositoryImpl @Inject constructor(
                     emit(NetworkResult.Success(entity.toDomainModel()))
                 }
             }
-
             // Fetch from API
             val response = api.getWeatherForecast(cityName = city)
             val weatherEntity = response.toEntity()
