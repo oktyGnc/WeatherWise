@@ -1,4 +1,4 @@
-package com.oktaygenc.weatherwise
+package com.oktaygenc.weatherwise.data.remote
 
 import com.oktaygenc.weatherwise.dto.WeatherResponseDto
 import com.oktaygenc.weatherwise.utils.Constants
