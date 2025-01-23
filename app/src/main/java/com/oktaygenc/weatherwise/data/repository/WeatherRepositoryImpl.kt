@@ -1,9 +1,9 @@
 package com.oktaygenc.weatherwise.data.repository
 
-import com.oktaygenc.weatherwise.data.local.WeatherDao
+import com.oktaygenc.weatherwise.data.local.dao.WeatherDao
 import com.oktaygenc.weatherwise.data.mapper.WeatherMapper.toDomainModel
 import com.oktaygenc.weatherwise.data.mapper.WeatherMapper.toEntity
-import com.oktaygenc.weatherwise.data.remote.WeatherApiService
+import com.oktaygenc.weatherwise.data.remote.api.WeatherApiService
 import com.oktaygenc.weatherwise.domain.model.WeatherInfo
 import com.oktaygenc.weatherwise.domain.repository.WeatherRepository
 import com.oktaygenc.weatherwise.utils.NetworkResult

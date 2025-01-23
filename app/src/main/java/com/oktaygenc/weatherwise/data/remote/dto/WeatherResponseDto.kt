@@ -1,4 +1,4 @@
-package com.oktaygenc.weatherwise.dto
+package com.oktaygenc.weatherwise.data.remote.dto
 
 import com.google.gson.annotations.SerializedName
 

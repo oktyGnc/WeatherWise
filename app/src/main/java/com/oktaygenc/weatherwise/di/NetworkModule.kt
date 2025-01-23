@@ -1,6 +1,6 @@
 package com.oktaygenc.weatherwise.di
 
-import com.oktaygenc.weatherwise.data.remote.WeatherApiService
+import com.oktaygenc.weatherwise.data.remote.api.WeatherApiService
 import com.oktaygenc.weatherwise.utils.Constants
 import dagger.Module
 import dagger.Provides

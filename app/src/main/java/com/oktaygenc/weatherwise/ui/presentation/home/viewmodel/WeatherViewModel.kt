@@ -1,4 +1,4 @@
-package com.oktaygenc.weatherwise.presentation.weather
+package com.oktaygenc.weatherwise.ui.presentation.home.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

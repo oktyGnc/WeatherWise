@@ -1,6 +1,6 @@
-package com.oktaygenc.weatherwise.data.remote
+package com.oktaygenc.weatherwise.data.remote.api
 
-import com.oktaygenc.weatherwise.dto.WeatherResponseDto
+import com.oktaygenc.weatherwise.data.remote.dto.WeatherResponseDto
 import com.oktaygenc.weatherwise.utils.Constants
 import retrofit2.http.GET
 import retrofit2.http.Query

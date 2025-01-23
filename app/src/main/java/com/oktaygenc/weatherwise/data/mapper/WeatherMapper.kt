@@ -1,12 +1,16 @@
 package com.oktaygenc.weatherwise.data.mapper
 
-import com.oktaygenc.weatherwise.data.local.WeatherEntity
+import com.oktaygenc.weatherwise.data.local.entity.WeatherEntity
+import com.oktaygenc.weatherwise.domain.model.ForecastInfo
 import com.oktaygenc.weatherwise.domain.model.Location
 import com.oktaygenc.weatherwise.domain.model.Weather
 import com.oktaygenc.weatherwise.domain.model.WeatherCondition
 import com.oktaygenc.weatherwise.domain.model.WeatherInfo
-import com.oktaygenc.weatherwise.dto.WeatherResponseDto
+import com.oktaygenc.weatherwise.data.remote.dto.WeatherResponseDto
 import com.oktaygenc.weatherwise.utils.Constants
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 object WeatherMapper {
 
@@ -25,7 +29,9 @@ object WeatherMapper {
             tempMin = forecast?.main?.tempMin ?: 0.0,
             tempMax = forecast?.main?.tempMax ?: 0.0,
             pressure = forecast?.main?.pressure ?: 0,
-            humidity = forecast?.main?.humidity ?: 0
+            humidity = forecast?.main?.humidity ?: 0,
+            forecasts = this.forecasts,
+            dateText = forecast?.dateText ?: ""
         )
     }
 
@@ -46,9 +52,22 @@ object WeatherMapper {
                 condition = WeatherCondition(
                     description = this.weatherDescription ?: "Unknown",
                     iconUrl = Constants.getIconUrl(this.weatherIcon),
-                    timestamp = this.timestamp
+                    timestamp = this.timestamp,
+                    dateText = Constants.formatTimestamp(this.timestamp)
                 )
-            )
+            ),
+            forecasts = forecasts.map { forecast ->
+                ForecastInfo(
+                    timestamp = forecast.timestamp,
+                    temperature = forecast.main.temperature,
+                    description = forecast.weather.firstOrNull()?.description ?: "",
+                    iconUrl = Constants.getIconUrl(forecast.weather.firstOrNull()?.icon ?: ""),
+                    date = SimpleDateFormat(
+                        "dd MMM",
+                        Locale.getDefault()
+                    ).format(Date(forecast.timestamp * 1000))
+                )
+            }
         )
     }
 }

@@ -1,9 +1,10 @@
-package com.oktaygenc.weatherwise.data.local
+package com.oktaygenc.weatherwise.data.local.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.oktaygenc.weatherwise.data.local.entity.WeatherEntity
 
 @Dao
 interface WeatherDao {

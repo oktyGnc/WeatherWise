@@ -1,7 +1,7 @@
 package com.oktaygenc.weatherwise.di
 
-import com.oktaygenc.weatherwise.data.local.WeatherDao
-import com.oktaygenc.weatherwise.data.remote.WeatherApiService
+import com.oktaygenc.weatherwise.data.local.dao.WeatherDao
+import com.oktaygenc.weatherwise.data.remote.api.WeatherApiService
 import com.oktaygenc.weatherwise.data.repository.WeatherRepositoryImpl
 import com.oktaygenc.weatherwise.domain.repository.WeatherRepository
 import dagger.Module
@@ -16,8 +16,8 @@ object RepositoryModule {
      @Provides
      @Singleton
      fun provideWeatherRepository(
-       weatherApi: WeatherApiService,
-       weatherDao: WeatherDao
+         weatherApi: WeatherApiService,
+         weatherDao: WeatherDao
    ): WeatherRepository {
        return WeatherRepositoryImpl(weatherApi, weatherDao) }
 } 

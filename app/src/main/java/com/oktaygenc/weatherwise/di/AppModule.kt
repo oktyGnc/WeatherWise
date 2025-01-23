@@ -2,8 +2,8 @@ package com.oktaygenc.weatherwise.di
 
 import android.content.Context
 import androidx.room.Room
-import com.oktaygenc.weatherwise.data.local.WeatherDao
-import com.oktaygenc.weatherwise.data.local.WeatherDatabase
+import com.oktaygenc.weatherwise.data.local.dao.WeatherDao
+import com.oktaygenc.weatherwise.data.local.database.WeatherDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

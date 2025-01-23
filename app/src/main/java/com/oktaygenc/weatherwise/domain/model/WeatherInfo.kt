@@ -1,17 +1,14 @@
 package com.oktaygenc.weatherwise.domain.model
 
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
-
 data class WeatherInfo(
     val location: Location,
-    val weather: Weather
+    val weather: Weather,
+    val forecasts: List<ForecastInfo>,
 )
 
 data class Location(
     val cityName: String,
-    val country: String
+    val country: String,
 )
 
 data class Weather(
@@ -24,15 +21,18 @@ data class Weather(
     val humidity: Int,
 )
 
+data class ForecastInfo(
+    val timestamp: Long,
+    val temperature: Double,
+    val description: String,
+    val iconUrl: String,
+    val date: String,
+)
+
 data class WeatherCondition(
     val timestamp: Long,
+    val dateText: String,
     val description: String,
-    val iconUrl: String
-) {
-    val formattedDate: String
-        get() {
-            val date = Date(timestamp)
-            val formatter = SimpleDateFormat("dd MMMM yyyy HH:mm:ss", Locale.getDefault())
-            return formatter.format(date)
-        }
-}
+    val iconUrl: String,
+)
+
