@@ -19,7 +19,13 @@ object WeatherMapper {
             country = this.city.country,
             temperature = forecast?.main?.temperature,
             weatherDescription = weatherDescription?.description,
-            weatherIcon = weatherDescription?.icon
+            weatherIcon = weatherDescription?.icon,
+            timestamp = System.currentTimeMillis(),
+            feelsLike = forecast?.main?.feelsLike ?: 0.0,
+            tempMin = forecast?.main?.tempMin ?: 0.0,
+            tempMax = forecast?.main?.tempMax ?: 0.0,
+            pressure = forecast?.main?.pressure ?: 0,
+            humidity = forecast?.main?.humidity ?: 0
         )
     }
 
@@ -32,9 +38,15 @@ object WeatherMapper {
             ),
             weather = Weather(
                 temperature = this.temperature ?: 0.0,
+                feelsLike = this.feelsLike,
+                tempMin = this.tempMin,
+                tempMax = this.tempMax,
+                pressure = this.pressure,
+                humidity = this.humidity,
                 condition = WeatherCondition(
                     description = this.weatherDescription ?: "Unknown",
-                    iconUrl = Constants.getIconUrl(this.weatherIcon)
+                    iconUrl = Constants.getIconUrl(this.weatherIcon),
+                    timestamp = this.timestamp
                 )
             )
         )
