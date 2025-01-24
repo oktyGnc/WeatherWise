@@ -27,7 +27,9 @@ data class ForecastInfo(
     val description: String,
     val iconUrl: String,
     val date: String,
-)
+    val humidity: Int,
+    val feelsLike: Double,
+    )
 
 data class WeatherCondition(
     val timestamp: Long,

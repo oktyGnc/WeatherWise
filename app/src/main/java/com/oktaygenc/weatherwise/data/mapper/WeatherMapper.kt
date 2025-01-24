@@ -62,6 +62,8 @@ object WeatherMapper {
                     temperature = forecast.main.temperature,
                     description = forecast.weather.firstOrNull()?.description ?: "",
                     iconUrl = Constants.getIconUrl(forecast.weather.firstOrNull()?.icon ?: ""),
+                    humidity = forecast.main.humidity,
+                    feelsLike = forecast.main.feelsLike,
                     date = SimpleDateFormat(
                         "dd MMM",
                         Locale.getDefault()
