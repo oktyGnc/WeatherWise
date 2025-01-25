@@ -36,7 +36,7 @@ fun WeatherScreen(
     viewModel: WeatherViewModel = hiltViewModel(),
 ) {
     val weatherState by viewModel.weatherState.collectAsState()
-    var location by remember { mutableStateOf("Istanbul") }
+    var location by remember { mutableStateOf("") }
     val scrollState = rememberScrollState()
 
     Box(
@@ -86,7 +86,9 @@ fun WeatherScreen(
                 }
 
                 is WeatherUiState.Error -> {
-                    ErrorCard((weatherState as WeatherUiState.Error).message)
+                    ErrorCard(
+                        message = "I think there's a problem"
+                    )
                 }
             }
         }

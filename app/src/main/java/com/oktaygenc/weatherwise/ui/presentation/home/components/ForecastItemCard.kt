@@ -79,7 +79,7 @@ fun ForecastItemCard(forecast: ForecastInfo) {
                     fontWeight = FontWeight.Bold
                 )
 
-                Spacer(modifier = Modifier.width(8.dp))
+                Spacer(modifier = Modifier.width(16.dp))
 
                 Icon(
                     painter = painterResource(R.drawable.ic_temperature),
